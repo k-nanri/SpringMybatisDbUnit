@@ -11,6 +11,6 @@ public interface DocumentMapper {
 
     public List<Document> selectAll();
     public Integer insertDocument(Document doc);
-    public Integer updateDocument(@Param("editor") String editor, @Param("edittime") Date edittime);
+    public Integer updateDocument(@Param("id") Integer id, @Param("editor") String editor, @Param("edittime") Date edittime);
     public Integer deleteDocument(Integer id);
 }

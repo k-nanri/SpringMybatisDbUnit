@@ -36,7 +36,9 @@
     DOCUMENT
     SET
     editor = #{editor},
-    edit_time = ${edittime}
+    edit_time = #{edittime}
+    WHERE
+    id = #{id}
   </update>
 
   <delete id="deleteDocument" parameterType="java.lang.Integer">
