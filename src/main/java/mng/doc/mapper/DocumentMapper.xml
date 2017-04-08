@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mng.doc.mapper.DocumentMapper">
+
+  <resultMap id="baseMap" type="mng.doc.dao.Document">
+    <id property="id" jdbcType="INTEGER" column="id" />
+    <result property="name" jdbcType="VARCHAR" column="name" />
+    <result property="registrant" jdbcType="VARCHAR" column="registrant" />
+    <result property="registrationtime" jdbcType="TIMESTAMP" column="registration_time" />
+    <result property="editor" jdbcType="VARCHAR" column="editor" />
+    <result property="edittime" jdbcType="TIMESTAMP" column="edit_time" />
+  </resultMap>
+
+  <select id="selectAll" resultMap="baseMap">
+    SELECT
+    *
+    FROM
+    DOCUMENT
+  </select>
+  <insert id="insertDocument" parameterType="mng.doc.dao.Document">
+    INSERT INTO
+    DOCUMENT
+    (name, registrant, registration_time)
+    VALUES
+    (
+    #{name},
+    #{registrant},
+    #{registrationtime}
+
+    )
+  </insert>
+  <update id="updateDocument">
+    UPDATE
+    DOCUMENT
+    SET
+    editor = #{editor},
+    edit_time = ${edittime}
+  </update>
+
+  <delete id="deleteDocument" parameterType="java.lang.Integer">
+    DELETE
+    FROM
+    DOCUMENT
+    WHERE
+    id = #{id}
+  </delete>
+</mapper>
