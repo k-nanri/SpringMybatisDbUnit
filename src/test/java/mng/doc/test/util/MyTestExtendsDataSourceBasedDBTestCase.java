@@ -35,7 +35,7 @@ public class MyTestExtendsDataSourceBasedDBTestCase extends
     /**
      * tag mapping
      */
-    private Map<String, Object> tagMap = new HashMap<>();
+    private Map<String, Object> tagMap = new HashMap<String, Object>();
     {
         this.tagMap.put("[null]", null);
         this.tagMap.put("[systemTime]", nowTime);
@@ -43,7 +43,7 @@ public class MyTestExtendsDataSourceBasedDBTestCase extends
 
     protected final String INSERT = "INSERT";
     protected final String DELETE_ALL = "DELETE_ALL";
-    private Map<String, DatabaseOperation> databaseOperationes = new HashMap<>();
+    private Map<String, DatabaseOperation> databaseOperationes = new HashMap<String, DatabaseOperation>();
     {
         this.databaseOperationes.put(INSERT, DatabaseOperation.CLEAN_INSERT);
         this.databaseOperationes.put(DELETE_ALL, DatabaseOperation.DELETE_ALL);
@@ -120,7 +120,7 @@ public class MyTestExtendsDataSourceBasedDBTestCase extends
             String tag = key;
             Object value = this.tagMap.get(key);
             if (tag.contains("Time")) {
-                value = toDateTimeStr((long) value);
+                value = toDateTimeStr((Long) value);
             }
             replacement.addReplacementObject(key, value);
         }
