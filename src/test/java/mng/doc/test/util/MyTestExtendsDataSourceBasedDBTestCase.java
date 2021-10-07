@@ -227,7 +227,8 @@ public class MyTestExtendsDataSourceBasedDBTestCase extends
         connection
             .getConnection()
             .createStatement()
-            .executeQuery("select setval('" + sequenceName + "', 1, false)");
+            //.executeQuery("select setval('" + sequenceName + "', 1, false)");
+            .execute("alter sequence " + sequenceName + " restart with 1");
     }
 
     /**
